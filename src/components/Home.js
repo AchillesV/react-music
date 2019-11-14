@@ -1,21 +1,20 @@
 
 import React from 'react';
-import Recommand from './Recommand'
-import Rank from './Rank'
-import Singer from './Singer'
 
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
   Link,
+  NavLink
 } from "react-router-dom";
 
 
 
-function Home() {
+function Home(props) {
+
+  console.log(props.routes)
+
   return (
-    <Router>
+    <div>
       <div className="top-box">
         <div className="top-menu">
           <div><Link to="/user" style={{textDecoration:'none', color: 'white'}}>用户</Link></div>
@@ -23,21 +22,28 @@ function Home() {
           <div><Link to="/search" style={{textDecoration:'none', color: 'white'}}>搜索</Link></div>
         </div>
         <div className="main-menu">
-          <div><Link to="/recommand" style={{textDecoration:'none', color: 'white'}}>推荐</Link></div>
-          <div><Link to="/singer" style={{textDecoration:'none', color: 'white'}}>歌手</Link></div>
-          <div><Link to="/rank" style={{textDecoration:'none', color: 'white'}}>排行榜</Link></div>
+          <div><NavLink to="/index/recommand" style={{textDecoration:'none', color: 'white'}}>推荐</NavLink></div>
+          <div><NavLink to="/index/singer" style={{textDecoration:'none', color: 'white'}}>歌手</NavLink></div>
+          <div><NavLink to="/index/rank" style={{textDecoration:'none', color: 'white'}}>排行榜</NavLink></div>
         </div>
       </div>
-
+ 
       <div className="content">
-        <Switch>
-          <Route path="/recommand" children={<Recommand />} />
-          <Route path="/singer" children={<Singer />} />
-          <Route path="/rank" children={<Rank />} />
-        </Switch>
+        
+        {props.routes.map((item,index)=>{
+          return (
+          <Route 
+            key={index} 
+            exact={item.exact} 
+            path={item.path} 
+            component={item.component}
+            render={item.render}
+          />)
+          })
+        }
 
       </div>
-    </Router>
+    </div>
   )
 }
 

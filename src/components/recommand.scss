@@ -1,0 +1,104 @@
+.contain {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 20%;
+  transition: all .8s;
+  transform: translateX(-50%);
+  color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+
+  .ul {
+    height: 100%;
+    list-style: none;
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+
+    .items {
+      position: absolute;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    li.show{
+      display: block;
+    }
+
+    li {
+      display: none;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .dots {
+    position: absolute;
+    left: 50%;
+    bottom: 1px;
+    height: 10px;
+    transform: translateX(-50%);
+
+    li {
+      float: left;
+      width: 10px;
+      height: 10px;
+      margin: 0px 5px;
+      border-radius: 50%;
+      transition: all .1s;
+      background-color: antiquewhite;
+      list-style: none;
+    }
+
+    li.active {
+      background-color: #ccc;
+     }
+
+  }
+
+
+  .control {
+    .left {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      padding: 5px;
+      transform: translateY(-50%);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .left:hover {
+      background-color: rgba($color: #000000, $alpha: 0.3);
+    }
+
+    .right {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      padding: 5px;
+      transform: translateY(-50%);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .right:hover {
+      background-color: rgba(0, 0, 0, .3);
+    }    
+  }
+}
+
+
+
+
+
