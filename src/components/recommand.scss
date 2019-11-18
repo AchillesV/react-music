@@ -44,7 +44,7 @@
 
   .dots {
     position: absolute;
-    left: 50%;
+    left: 48%;
     bottom: 1px;
     height: 10px;
     transform: translateX(-50%);
@@ -99,6 +99,43 @@
 }
 
 
+.recommand-content {
+  width: 98%;
+  margin: 0 auto;
+  .songs-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 
+    .songs:nth-of-type(3n-1) {
+      margin: 0 2%;
+    }
+
+    .songs {
+    width: 32%;
+    padding-bottom: 1%;;
+      img {
+        height: 100%;
+        width:100%;
+      }
+
+      .songs-img {
+        position: relative;
+
+        .count {
+          font-size: 13px;
+          position: absolute;
+          top:1%;
+          right:1%;
+          color: white;
+        }
+      }
+
+      .desc {
+        font-size: 13px
+      }
+    }
+  }
+}
 
 

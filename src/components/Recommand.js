@@ -47,8 +47,8 @@ componentWillUnmount() { //销毁前清除定时器
         showIndex
     })
   }
-  previous = (e) => { //上一张
-    let ev = e || window.event;
+  previous = () => { //上一张
+    // let ev = e || window.event;
     let {showIndex, imgs} = this.state;
     if(showIndex <= 0){
         showIndex = imgs.length - 1;
@@ -59,8 +59,8 @@ componentWillUnmount() { //销毁前清除定时器
         showIndex
     })
   }
-  next = (e) => { //下一张
-    let ev = e || window.event;
+  next = () => { //下一张
+    // let ev = e || window.event;
     let {showIndex, imgs} = this.state;
     if(showIndex >= imgs.length - 1){
         showIndex = 0;
@@ -76,43 +76,76 @@ componentWillUnmount() { //销毁前清除定时器
     return (
       <div>
         <div className="contain" 
-                       onMouseEnter={()=>{this.stop()}} //鼠标进入停止自动播放
-                       onMouseLeave={()=>{this.start()}}  //鼠标退出自动播放
-                  >
-                      <ul className="ul">
-                          {
-                              this.state.imgs.map((value, index) => {
-                                  return (
-                                      <li className={index === this.state.showIndex ? 'show' : ''}
-                                          key={index} 
-                                      > 
-                                          <img src={require('./../assets/images/'+(index+1)+'.jpg')} alt="轮播图" />
-                                      </li>
-                                  )
-                              })
-                          }
-                      </ul>
-                      <ul className="dots" style={{width: this.state.imgs.length * 20 + 'px'}}> 
-                          {
-                              this.state.imgs.map((value, index) => {
-                                  return (
-                                      <li key={index}  
-                                          className={index === this.state.showIndex ? 'active' : ''} 
-                                          onClick={()=>{this.change(index)}}>
-                                      </li>)
-                              })
-                          }
-                          
-                      </ul>
-                      <div className="control">
-                          <span className="left"  onClick={(e)=>{this.previous(e)}}>←</span>
-                          <span className="right" onClick={(e)=>{this.next(e)}}>→</span>
-                      </div>
-                  </div>
+          onMouseEnter={()=>{this.stop()}} //鼠标进入停止自动播放
+          onMouseLeave={()=>{this.start()}}  //鼠标退出自动播放
+        >
+          <ul className="ul">
+              {
+                  this.state.imgs.map((value, index) => {
+                      return (
+                          <li className={index === this.state.showIndex ? 'show' : ''}
+                              key={index} 
+                          > 
+                              <img src={require('./../assets/images/'+(index+1)+'.jpg')} alt="轮播图" />
+                          </li>
+                      )
+                  })
+              }
+          </ul>
+          <ul className="dots" style={{width: this.state.imgs.length * 20 + 'px'}}> 
+            {
+                this.state.imgs.map((value, index) => {
+                    return (
+                        <li key={index}  
+                            className={index === this.state.showIndex ? 'active' : ''} 
+                            onClick={()=>{this.change(index)}}>
+                        </li>)
+                })
+            }
+              
+          </ul>
+          <div className="control">
+              <span className="left"  onClick={(e)=>{this.previous(e)}}>←</span>
+              <span className="right" onClick={(e)=>{this.next(e)}}>→</span>
+          </div>
+        </div>
+
+        <div className="recommand-content">
+          <div><h4>推荐歌单</h4></div>
+          <div className="songs-list">
+            <div className="songs">
+              <div className="songs-img">
+                <img src={require('../assets/images/109951164329153331.jpg')} alt="" />
+                <div className="count">▷2333万</div>
+              </div>
+              <div className="desc">如果人群太拥挤，就让我用耳机与世界对抗</div>
+            </div>
+            <div className="songs">
+              <div>
+                <img src={require('../assets/images/109951164329153331.jpg')} alt="" />
+              </div>
+              <div className="desc">如果人群太拥挤，就让我用耳机与世界对抗</div>
+            </div>
+            <div className="songs">
+              <div>
+                <img src={require('../assets/images/109951164329153331.jpg')} alt="" />
+              </div>
+              <div className="desc">如果人群太拥挤，就让我用耳机与世界对抗</div>
+            </div>
+            <div className="songs">
+              <div>
+                <img src={require('../assets/images/109951164329153331.jpg')} alt="" />
+              </div>
+              <div className="desc">如果人群太拥挤，就让我用耳机与世界对抗</div>
+            </div>
+          </div>
+        </div>
+
   
       </div>
     )
   }
+
 
 
 }
