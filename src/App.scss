@@ -1,8 +1,13 @@
 .top-box {
+  position: fixed;
+  width: 100%;
+  top:0px;
+  left:0px;
   text-align: center;
   background-color: red;
   padding-bottom: 3%;
   color: white;
+  z-index: 999;
 
   .top-menu {
     display: flex;

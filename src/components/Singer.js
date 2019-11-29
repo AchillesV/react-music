@@ -1,8 +1,11 @@
 import React from 'react'
 
 function Singer () {
+  
   return (
-    <div>Singer</div>
+    <div>
+      Singer
+    </div>
   )
 }
 
